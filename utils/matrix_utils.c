@@ -8,7 +8,7 @@ void setMatrix(matrix *matrix) {
     {
         for (int j = 0; j < matrix->row; j++)
         {
-            matrix->matrixValue[i][j] = i+j;
+            matrix->matrixValue[i][j] = i+j*j;
         }
     }
 }

@@ -10,7 +10,7 @@ int main() {
 }
 
 void test() {
-    matrix matrixA = {3, 3};
+    matrix matrixA = {.column = 2, .row = 3};
     matrix matrixB = {3, 3};
 
     setMatrix(&matrixA);
@@ -19,6 +19,8 @@ void test() {
     print_matrix(matrixB);
     addition_matrix(matrixA, matrixB);
     subtraction_matrix(matrixA, matrixB);
+    transpose_matrix(matrixA);
+    multiply_matrix(matrixA, matrixB);
     free_matrix(&matrixA);
     free_matrix(&matrixB);
 }

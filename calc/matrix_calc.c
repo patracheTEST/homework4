@@ -56,12 +56,48 @@ void subtraction_matrix(matrix matrixA, matrix matrixB) {
     return;
 }
 
-void transpose_matrix() {
+void transpose_matrix(matrix oldMatrix) {
+    
+    matrix transposedMatrix = {
+        .column = oldMatrix.row,
+        .row = oldMatrix.column
+    };
+    
+    giveMatrixSpace(&transposedMatrix);
 
+    for (int i = 0; i < oldMatrix.column; i++) {
+        for (int j = 0; j < oldMatrix.row; j++) {
+            transposedMatrix.matrixValue[j][i] = oldMatrix.matrixValue[i][j];
+        }
+    }
+    printf("transpose complete, ");
+    print_matrix(transposedMatrix);
+    free_matrix(&transposedMatrix);
 }
 
-void multiply_matrix() {
+void multiply_matrix(matrix matrixA, matrix matrixB) {
+    if (matrixA.row != matrixB.column) {
+        printf("multiply failed : matrix size does not matches\n");
+        return;
+    }
+    matrix multipliedMatrix = {
+        .column = matrixA.column,
+        .row = matrixB.row,
+    };
+    giveMatrixSpace(&multipliedMatrix);
 
+    for (int i = 0; i < multipliedMatrix.column; i++) {
+        for (int j = 0; j < multipliedMatrix.row; j++) {
+            multipliedMatrix.matrixValue[i][j] = 0;
+            for (int k = 0; k < matrixA.row; k++) {
+                multipliedMatrix.matrixValue[i][j] += matrixA.matrixValue[i][k] * matrixB.matrixValue[k][j];
+            }
+        }
+    }
+
+    printf("multiply complete, ");
+    print_matrix(multipliedMatrix);
+    free_matrix(&multipliedMatrix);
 }
 
 int compareMatrixSize(matrix matrixA, matrix matrixB) {
