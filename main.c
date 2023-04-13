@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "model/matrix.h"
-#include "utils/matrix_utils.h"
+#include "calc/matrix_calc.h"
 
 void test();
 
@@ -11,14 +10,15 @@ int main() {
 }
 
 void test() {
-    matrix matrixA = {2, 2};
+    matrix matrixA = {3, 3};
     matrix matrixB = {3, 3};
 
     setMatrix(&matrixA);
     setMatrix(&matrixB);
     print_matrix(matrixA);
     print_matrix(matrixB);
+    addition_matrix(matrixA, matrixB);
+    subtraction_matrix(matrixA, matrixB);
     free_matrix(&matrixA);
     free_matrix(&matrixB);
-
 }
