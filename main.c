@@ -10,11 +10,20 @@ int main() {
 }
 
 void test() {
-    matrix matrixA = {.column = 2, .row = 3};
-    matrix matrixB = {3, 3};
-
+    matrix matrixA;
+    printf("matrixA col: ");
+    scanf("%d", &(matrixA.column));
+    printf("matrixA row: ");
+    scanf("%d", &(matrixA.row));
     setMatrix(&matrixA);
+
+    matrix matrixB;
+    printf("matrixB col: ");
+    scanf("%d", &(matrixB.column));
+    printf("matrixB row: ");
+    scanf("%d", &(matrixB.row));
     setMatrix(&matrixB);
+    
     print_matrix(matrixA);
     print_matrix(matrixB);
     addition_matrix(matrixA, matrixB);

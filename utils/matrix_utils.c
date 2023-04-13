@@ -4,11 +4,12 @@
 
 void setMatrix(matrix *matrix) {
     giveMatrixSpace(matrix);
+    printf("행렬 값 입력 : \n");
     for (int i = 0; i < matrix->column; i++)
     {
         for (int j = 0; j < matrix->row; j++)
         {
-            matrix->matrixValue[i][j] = i+j*j;
+            scanf("%d", &(matrix->matrixValue[i][j]));
         }
     }
 }
